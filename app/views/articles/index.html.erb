@@ -1,0 +1,22 @@
+<div class="p-4">
+    <table class="table-auto border-collapse">
+        <thead>
+            <tr>
+                <th class="p-2 text-left border">Title</th>
+                <th class="p-2 text-left border">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @articles.each do |article| %>
+                <tr>
+                    <td class="p-2 border text-lg"><%= article.title %></td>
+                    <td class="p-2 border">
+                        <span class="bg-green-500 p-2 rounded text-white">
+                            <%= link_to 'Show', article_path(article) %>
+                        </span>
+                    </td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>

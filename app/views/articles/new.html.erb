@@ -1,0 +1,19 @@
+<%= form_with scope: :article, url: articles_path, local: true do |form| %>
+    <div class="md:container md:mx-auto p-4 flex flex-col">
+        <% if @article.errors.any? %>
+            <div class="rounded bg-red-500 text-white p-2 mb-4" id="error_explanation">
+                <span class="font-bold">Validation error</span>
+                <ul>
+                    <% @article.errors.full_messages.each do |msg| %>
+                        <li class="text-sm"><%= msg %></li>
+                    <% end %>
+                </ul>
+            </div>
+        <% end %>
+        <%= form.label :title %>
+        <%= form.text_field :title, :class => "w-full p-2 rounded border mb-4" %>
+        <%= form.label :text %>
+        <%= form.text_area :text, :class => "w-full p-2 rounded border mb-4" %>
+        <%= form.submit :class => "bg-green-500 rounded p-2 text-white cursor-pointer mr-auto" %>
+    </div>
+<% end %>

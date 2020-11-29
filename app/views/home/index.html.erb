@@ -1,2 +1,4 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<div class="md:container md:mx-auto p-4 flex flex-col">
+    <%= render partial: 'articles/article', locals: { article: @article } %>
+    <%= link_to 'View all posts', articles_path(), :class => "mt-2 block text-sm text-gray-600 mr-auto" %>
+</div>
