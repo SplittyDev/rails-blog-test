@@ -1,22 +1,10 @@
-<div class="p-4">
-    <table class="table-auto border-collapse">
-        <thead>
-            <tr>
-                <th class="p-2 text-left border">Title</th>
-                <th class="p-2 text-left border">Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            <% @articles.each do |article| %>
-                <tr>
-                    <td class="p-2 border text-lg"><%= article.title %></td>
-                    <td class="p-2 border">
-                        <span class="bg-green-500 p-2 rounded text-white">
-                            <%= link_to 'Show', article_path(article) %>
-                        </span>
-                    </td>
-                </tr>
-            <% end %>
-        </tbody>
-    </table>
+<div class="md:container md:mx-auto p-4 flex flex-col space-y-2">
+    <% @articles.each do |article| %>
+        <div class="flex flex-row items-center w-fill justify-between">
+            <span>
+                <%= link_to article.title, article_path(article) %>
+            </span>
+            <span class="text-gray-500 text-sm"><%= article.created_at.to_date %></span>
+        </div>
+    <% end %>
 </div>
